@@ -1,29 +1,24 @@
 import nltk, requests
 from bs4 import BeautifulSoup
 from nltk.tokenize import word_tokenize
-nltk.download('stopwords')
-nltk.download('punkt') 
 def seo_analysis(url):
+    soup = BeautifulSoup(requests.get(url).content, 'html.parser')
     good, bad = [], []
-    response = requests.get(url)
-    if response.status_code != 200:
-        print("Error: Unable to access the website.")
-        return
-    soup = BeautifulSoup(response.content, 'html.parser')
     title = soup.find('title').get_text()
     description = soup.find('meta', attrs={'name': 'description'})['content']
     if title:
         good.append("Title Exists! Great!")
     else:
         bad.append("Title does not exist! Add a Title")
+
     if description:
         good.append("Description Exists! Great!")
     else:
         bad.append("Description does not exist! Add a Meta Description")
-    hs, h_tags = ["h1", "h2", "h3", "h4", "h5", "h6"], []
+    hs, h_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], []
     for h in soup.find_all(hs):
         good.append(f"{h.name}-->{h.text.strip()}")
-    h_tags.append(h.name)
+        h_tags.append(h.name)
     if 'h1' not in h_tags:
         bad.append("No H1 found!")
     for i in soup.find_all('img', alt=''):
@@ -36,9 +31,8 @@ def seo_analysis(url):
         if i not in sw and i.isalpha():
             new_words.append(i)
     freq = nltk.FreqDist(new_words)
-    keywords= freq.most_common(10)
+    keywords = freq.most_common(10)
     print("Keywords: ", keywords)
     print("The Good: ", good)
     print("The Bad: ", bad)
-seo_analysis("https://croisette.se")
-#https://pythonology.eu/what-is-syntax-in-programming-and-linguistics/
+seo_analysis("https://pythonology.eu/what-is-syntax-in-programming-and-linguistics/")
