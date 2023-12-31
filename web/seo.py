@@ -1,12 +1,10 @@
-import requests
+import nltk, requests
 from bs4 import BeautifulSoup
-import nltk
 from nltk.tokenize import word_tokenize
 nltk.download('stopwords')
 nltk.download('punkt') 
 def seo_analysis(url):
-    good = []
-    bad = []
+    good, bad = [], []
     response = requests.get(url)
     if response.status_code != 200:
         print("Error: Unable to access the website.")
@@ -22,8 +20,7 @@ def seo_analysis(url):
         good.append("Description Exists! Great!")
     else:
         bad.append("Description does not exist! Add a Meta Description")
-    hs = ["h1", "h2", "h3", "h4", "h5", "h6"]
-    h_tags = []
+    hs, h_tags = ["h1", "h2", "h3", "h4", "h5", "h6"], []
     for h in soup.find_all(hs):
         good.append(f"{h.name}-->{h.text.strip()}")
     h_tags.append(h.name)
