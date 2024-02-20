@@ -1,0 +1,85 @@
+https://github.com/DroidsOnRoids,android-guidelines,sdk,1,"cv, ocr, yml",klepobot
+https://github.com/zavenco,flutter-github-workflow,sdk,1,,bird
+https://github.com/railwaymen/,"klepbot mobile, workshops, qcm",sdk,1,,1
+https://github.com/wildasoftware/,"football calculator, mastodon",sdk,1,,
+https://github.com/woduda,"regon, directpay, qr",admin,20,custom 1,
+https://github.com/rzubala/,invoice reminder,admin,20,,
+https://github.com/pwoszczyk,"manticore search, imap wrapper",social,20,,
+https://github.com/ArmorLab,"symfony cms, imap",website,20,,
+https://github.com/ApploverSoftware,flutter-docker,paas,10,cross test 1,
+https://github.com/leancodepl/,"flutter-folio, telegraph",paas,10,,
+https://github.com/krystianmagdziarz/,"autogpt, py-proxy, django, hackathon",ml,10,,
+https://github.com/monterail,"flutter starter, doc-to-llm, sui (tz)",ml,10,112,
+https://github.com/JAAulde/,"mastermind, cookies, php-ip4, gulp",admin,2,session,gatsby
+https://github.com/initbiz/,"pdf-plugin, selenium test",admin,2,,oak
+https://github.com/unic,"front-end, gulp-sass",admin,2,,2
+https://github.com/smysakowski,gatsby react,website,4,cross test 2,
+https://github.com/limebrains/,"react-redux, bash-yml, scrapers",website,4,,
+https://github.com/leocode/,puppeteer,social,4,,
+https://github.com/facebook/,create-react-app,saas,5,q inspect,
+https://github.com/in4system,"contactmanager, dom",admin,5,,
+https://github.com/getify/,"dom-js event, mpajax",website,5,,
+https://github.com/getsentry/,"twilio, reactjs, js-cookie",website,6,5/2 fitness,
+https://github.com/erloon/,"angular, reactredux",saas,6,,
+https://github.com/testomatio/,"js report, api key",admin,6,,
+https://github.com/florinpop17,"app-ideas, memory, gatsby",website,23,cross test 2,
+https://github.com/javve,"list.js codepen, sorbet.org",website,23,,
+https://github.com/lusarz,jira-cli,admin,23,215,
+https://github.com/KrystianD,"cpp utils, pdf-qr",admin,3,skip,stripe
+https://github.com/antkowiakit,"arrays intersection, accounting",admin,3,,
+https://github.com/gustawdaniel/,"accounting, gpt-cli, scrapedin",admin,3,,
+https://github.com/spinach/joeyagreco,"sportsipy, hacking",ml,8,,
+https://github.com/RyxolSolutions,"xamarin, mysql-api",daas,8,,
+https://github.com/softwaremantech,dbtrack,daas,8,,
+https://github.com/Ermlab,"julia, scrum, xamarin",ml,8,37,
+https://github.com/soitpl,ntlm-soup,paas,9,hw limits,"tf, cuda"
+https://github.com/dlabsai/,"kaggle spaceship, hackathon",ml,9,,
+https://github.com/codete,"dna, gan, docker",ml,9,,
+https://github.com/dario-l,"onion, arduino",embed,12,cross test 9,
+https://github.com/draghuram,"astropy, adafruit, kubebuild, sshpwd",embed,12,,
+https://github.com/wizzdev-pl,"iot, mesh, fpga, esp32 firmware",embed,12,,
+https://github.com/upnext/,"blekit, savon (soap)",embed,12,47,
+https://github.com/ScalaConsultants,"tezos, vhs, slack",iaas,11,skip,
+https://github.com/plipowczan,blockchain,iaas,11,,torrent hw
+https://github.com/software-mansion/,"starknet, scarb",iaas,11,,
+https://github.com/rumblefishdev/,"jsonrpc-proxy, eth debug",iaas,11,,
+https://github.com/beittech,"quantum assembly, google cirq",embed,13,,
+https://github.com/mdrwiega/,"robots, bluetooth, intel sdk",embed,13,,
+https://github.com/Sology,"syswatch, juvia",embed,13,57,
+https://github.com/sviete/,"zigbee adapter, home assistant",embed,14,os drop,bitspudlo
+https://github.com/apptension/,"saas-boilerplate, synthflow",saas,14,,4
+https://github.com/HubertPtaszek,"calmedic, prismicio",saas,14,,
+https://github.com/PiwikPRO/,gtm analytics,admin,7,a/b test os,
+https://github.com/soflyy/,"strapi, minify",admin,7,,mfa
+https://github.com/maksymilian-org,"strapi, angular",admin,7,,
+https://github.com/noxgle,"freecad macros, robots",embed,15,custom drop,
+https://github.com/KingSora,remix (cloudflare),website,15,,
+https://github.com/brandonaaron/,"hylia, repl plugin, connect4",saas,15,,
+https://github.com/elementor/,"websitebuilder, reverse-proxy",saas,16,drop,
+https://github.com/SzymCode,"rwd, ecommerce",saas,16,,
+https://github.com/software-things/,"form-carter, 3d js, crisis cms",saas,16,,
+https://github.com/tomash,"esp32-ir-, soup io, slackdigest, sinatra, spree, bitspudlo engine",saas,14,613,
+https://github.com/DivanteLtd,"pimcore enrichment, anonymizer, magento elasticsearch",social,17,uuid,wordpress
+https://github.com/InteractiveAdvertisingBureau/,"gdpr, taxonomi",social,17,,ast ping
+https://github.com/qwerkon,"urlhub, docker cheat, silsilah tree",social,17,,3
+https://github.com/dawidurbanski,wp-docker,paas,18,cross test 17,
+https://github.com/kamilwyremski,"wp-api-post, captcha, laravel",admin,18,,
+https://github.com/Rublon,mfa pass code,admin,18,76,
+https://github.com/Bounteous-Inc/,"shopkit (stripe), aem-webpack",website,19,deployment,server
+https://github.com/skygate,"oscar-stripe, django chat, hybridauth",social,19,,5
+https://github.com/dominservice,"laravel-stripe, prestashop, regon",admin,19,,
+https://github.com/Fourcast,json-bigquery,daas,22,,
+https://github.com/netteria,"jquery-site-loading, video-popup",website,22,,
+https://github.com/aFarkas/,"lazy loader, cdnjs, ajax",daas,22,,
+https://github.com/pifantastic,grunt-s3,daas,22,87,
+https://github.com/MateuszManaj,redis symfony,website,21,demo,hour of code
+https://github.com/pies,"oem, cas sso, symfony, sylius",website,21,,
+https://github.com/VMLYR/,"drupal, hour of code",website,21,93,
+https://github.com/mdehoogh,"ajax-crud (ironhack), jtonneyck (tdd)",website,24,integrate,firebase
+https://github.com/padsbanger,"cdn-react-boilerplate, firebase crud",daas,24,,
+https://github.com/ambisoft,"firebase, xsbt plugin, gitdm",website,24,,
+https://github.com/ajbisoft,"stelligent, spambotkiller",social,25,,
+https://github.com/owojcikiewicz,"discord bot, shipping labels, mute",social,25,,
+https://github.com/3mdeb,"sentrifugo (hr), sqlite-sync (offline)",social,25,,
+https://github.com/tpope/,"github webhooks, ldap wrapper",social,25,107,
+https://ebookfoundation.github.io/free-programming-books/,"maxnoy.com/interviews.html, nofluffjobs, xpatjobs, justjoin.it",,,,
