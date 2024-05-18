@@ -1,18 +1,16 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy 
-import csv
-# df = pd.read_fwf('dif.txt')
-# df.to_csv('dif.csv')
-df = pd.read_csv('dif.csv')
+import csv, numpy 
+# df = pd.read_fwf('../prep/dif.txt')
+# df.to_csv('../prep/dif.csv')
+df = pd.read_csv('../prep/dif.csv')
 ab = df.reviews.min('Tools')
 ac = df.reviews.max('Casual')
 ad = df.reviews.median('Arcade')
 print(ab,ac,ad)
-
-#tor = db.mean()
-#tor.to_csv('Ove.csv', mode='a')
 '''
+# tor = db.mean()
+# tor.to_csv('Ove.csv', mode='a')
 Subjects = []
 Scores = []
   

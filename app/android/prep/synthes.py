@@ -1,5 +1,19 @@
 import pandas as pd
-with open('Act.csv', 'r') as cv1, open('Adv.csv', 'r') as cv2, open('Arc.csv', 'r') as cv3, open('Bet.csv', 'r') as cv4, open('Bod.csv', 'r') as cv5, open('Bok.csv', 'r') as cv6, open('Bus.csv', 'r') as cv7, open('Car.csv', 'r') as cv8, open('Cas.csv', 'r') as cv9, open('Com.csv', 'r') as c10, open('Cop.csv', 'r') as c11, open('Dat.csv', 'r') as c12, open('Des.csv', 'r') as c13, open('Edu.csv', 'r') as c14, open('Ent.csv', 'r') as c15, open('Eve.csv', 'r') as c16, open('Fin.csv', 'r') as c17, open('Foo.csv', 'r') as c18, open('Hem.csv', 'r') as c19, open('Ino.csv', 'r') as c20, open('Lib.csv', 'r') as c21, open('Lif.csv', 'r') as c22, open('Map.csv', 'r') as c23, open('Med.csv', 'r') as c24, open('Mus.csv', 'r') as c25, open('New.csv', 'r') as c26, open('Par.csv', 'r') as c27, open('Pho.csv', 'r') as c28, open('Pro.csv', 'r') as c29, open('Puz.csv', 'r') as c30, open('Rac.csv', 'r') as c31, open('Rol.csv', 'r') as c32, open('Sho.csv', 'r') as c33, open('Sim.csv', 'r') as c34, open('Soc.csv', 'r') as c35, open('Spo.csv', 'r') as c36, open('Sta.csv', 'r') as c37, open('Tol.csv', 'r') as c38, open('Tra.csv', 'r') as c39, open('Tri.csv', 'r') as c40, open('Veh.csv', 'r') as c41, open('Vid.csv', 'r') as c42, open('Wea.csv', 'r') as c43, open('Woo.csv', 'r') as c44:
+with open('Act.csv', 'r') as cv1, open('Adv.csv', 'r') as cv2, open('Arc.csv', 'r') as cv3, \
+open('Bet.csv', 'r') as cv4, open('Bod.csv', 'r') as cv5, open('Bok.csv', 'r') as cv6, 
+open('Bus.csv', 'r') as cv7, open('Car.csv', 'r') as cv8, open('Cas.csv', 'r') as cv9, 
+open('Com.csv', 'r') as c10, open('Cop.csv', 'r') as c11, open('Dat.csv', 'r') as c12, 
+open('Des.csv', 'r') as c13, open('Edu.csv', 'r') as c14, open('Ent.csv', 'r') as c15, 
+open('Eve.csv', 'r') as c16, open('Fin.csv', 'r') as c17, open('Foo.csv', 'r') as c18, 
+open('Hem.csv', 'r') as c19, open('Ino.csv', 'r') as c20, open('Lib.csv', 'r') as c21, 
+open('Lif.csv', 'r') as c22, open('Map.csv', 'r') as c23, open('Med.csv', 'r') as c24, 
+open('Mus.csv', 'r') as c25, open('New.csv', 'r') as c26, open('Par.csv', 'r') as c27, 
+open('Pho.csv', 'r') as c28, open('Pro.csv', 'r') as c29, open('Puz.csv', 'r') as c30, 
+open('Rac.csv', 'r') as c31, open('Rol.csv', 'r') as c32, open('Sho.csv', 'r') as c33, 
+open('Sim.csv', 'r') as c34, open('Soc.csv', 'r') as c35, open('Spo.csv', 'r') as c36, 
+open('Sta.csv', 'r') as c37, open('Tol.csv', 'r') as c38, open('Tra.csv', 'r') as c39, 
+open('Tri.csv', 'r') as c40, open('Veh.csv', 'r') as c41, open('Vid.csv', 'r') as c42, 
+open('Wea.csv', 'r') as c43, open('Woo.csv', 'r') as c44:
     import1 = cv1.readlines()
     import2 = cv2.readlines()
     import3 = cv3.readlines()
@@ -121,4 +135,3 @@ with open('dif.csv', 'w') as outFile:
     for row in import44:
         if row not in import43:
             outFile.write(row)
-    

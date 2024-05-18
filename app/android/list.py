@@ -13,5 +13,5 @@ for word, frequency in frequencies.most_common(10):
 import requests
 url = "https://raw.githubusercontent.com/schlende/practical-pandas-projects/master/datasets/google-play-store-11-2018.csv"
 r = requests.get(url)
-with open('/home/dragon/Documents/rai/andro.csv', 'w') as file:
+with open('andro.csv', 'w') as file:
     file.write(r.text)

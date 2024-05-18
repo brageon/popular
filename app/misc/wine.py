@@ -36,6 +36,3 @@ print(mean_squared_error(y_test, y_pred))
 joblib.dump(clf, 'rf_regressor.pkl')
 clf2 = joblib.load('rf_regressor.pkl')
 clf2.predict(X_test)
-
-
-

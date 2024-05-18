@@ -18,4 +18,3 @@ print(S.body.prettify())
 for tag in S.find_all('div class'):
     print(f'{tag.name}: {tag.text}')
 '''
-  

@@ -6,5 +6,3 @@ with open(infile) as fin, open(outfile, "w+") as fout:
         for word in delete_list:
             line = line.replace(word, "")
         fout.write(line)
-        
-        
