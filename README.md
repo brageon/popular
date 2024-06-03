@@ -3,7 +3,7 @@ Competitive analysis and industry proposals. Did this in April-May 2023 and that
 
 Folder web has format module: div, extract, soup, text. Scrape: remote, quo*, spider, seo. Pyscript: urls, todo. Extra: jso, tube, video. Folder app has android module: list, interact, miss (lambda), new, septim, stats, max, label, genre, synthes, review. TA: stocks, stuk, wine. Games: fibon, parser, plagi, name, bolag. 
 
-In June 2024 I added AWS here. Primary for Ansible setup. Secondary for UCI ML Repo insights. AWS-RunRemoteScript: Ansible Playbooks and Python scripts from Git. Glue, Neptune to analyze S3 after Run. OpenSearch to browse documents. Elasticsearch to browse IoT devices. Kinesis Stream records from Sumo Logic to Grafana.
+In June 2024 I added AWS here. Primary for Ansible setup. Secondary for UCI ML Repo insights. AWS-RunRemoteScript: Ansible Playbooks and Python scripts from Git. Glue, Neptune to analyze S3 after Run. OpenSearch to browse documents. Elasticsearch to browse IoT devices. Kinesis Stream records from Sumo Logic to Grafana with Athena.
 
 One goal of git repos is to show preferences: debt=si, oak=fe, popular=te, rest=xe, imgo=ti, upsun=se. Timeline: rest > oak > debt > imgo > upsun. Ambiguous: (ti) chunking, calculus, pickles, use cases, (xe) solution branches, obscure.* 
 
