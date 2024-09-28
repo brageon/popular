@@ -1,9 +1,13 @@
+import numpy as np
 import math, statistics
-def forex(*args, type=float):   
-    for arg in args:       
+from scipy.stats import norm
+
+def forex(*args, type=float):
+    for arg in args:
         return round(arg, 2)
 def rolex(*args, type=float):
     return tuple(round(arg, 2) for arg in args)
+
 def calculate_std(data):
     mean = sum(data) / len(data)
     squared_differences = [(x - mean) ** 2 for x in data]
@@ -12,6 +16,7 @@ def calculate_std(data):
     return forex(std)
 def calculate_moment(start_price, end_price, period):
     return forex((end_price - start_price) / start_price * period)
+
 def calculate_typical(high, low, close):
     return forex((high + low + close) / 3)
 def calculate_rsi(gains, period):
@@ -20,12 +25,26 @@ def calculate_rsi(gains, period):
     rs = avg_gain / avg_loss
     rsi = 100 - 100 / (1 + rs)
     return forex(rsi), rolex(avg_loss)
+
 def calculate_trend(typical_price, volume, rsi):
     trend = math.log(typical_price * volume) * (1 - rsi / 100)
     return forex(trend)
 def calculate_ema(price, prev_ema, alpha):
     ema = price * alpha + prev_ema * (1 - alpha)
     return forex(ema)
+
+def mean_gap_size(prices, period):
+    gaps = [high - low for high, low in zip(prices[period:], prices[:-period])]
+    mean_gap = sum(gaps) / len(gaps)
+    return forex(mean_gap)
+
+def calculate_aroon(prices, period):
+    highest_high = max(prices[-period:])
+    lowest_low = min(prices[-period:])
+    aroon_up = (period - prices.index(highest_high) + 1) / period * 100
+    aroon_down = (period - prices.index(lowest_low) + 1) / period * 100
+    return rolex(aroon_up, aroon_down)
+
 def calculate_bollinger_bands(prices, window_size, stdev_multiple):
     sma = sum(prices[-window_size:]) / window_size
     squared_differences = [(price - sma)**2 for price in prices[-window_size:]]
@@ -34,28 +53,50 @@ def calculate_bollinger_bands(prices, window_size, stdev_multiple):
     upper_band = sma + stdev_multiple * stdev
     lower_band = sma - stdev_multiple * stdev
     return rolex(upper_band, lower_band)
-def calculate_fibonacci(high, low):
-    delta = high - low
-    abc = 0.236 * delta
-    bcd = 0.382 * delta
-    cde = 0.500 * delta
-    efg = 0.618 * delta
-    fgh = 0.786 * delta
-    return rolex(abc, bcd, cde, efg, fgh)
-start_price = 66339
-end_price = 67846
+
+def calculate_emv(high, low, volume):
+    delta = (high + low) / 2
+    easy = (delta * volume) / 100000000
+    return forex(easy)
+
+def black_scholes_call(S, K, T, r, sigma):
+    d1 = (math.log(S/K) + (r + sigma**2/2)*T) / (sigma*math.sqrt(T))
+    d2 = d1 - sigma*math.sqrt(T)
+    call_price = S*norm.cdf(d1) - K*math.exp(-r*T)*norm.cdf(d2)
+    return forex(call_price)
+
+def calculate_vix(prices, window_size, period, call_price):
+    returns = np.diff(np.log(prices)) * 100
+    squared_returns = returns**2
+    variance = np.mean(squared_returns[-window_size:])
+    annualized_volatility = np.sqrt(variance * period)
+    vix = annualized_volatility * call_price
+    return forex(vix)
+
+def merge_indicators(rsi, vix, moment, call_price):
+    weights = [0.3, 0.3, 0.2, 0.2]
+    combined_indicator = sum([indicator * weight for indicator, weight in zip([rsi, vix, moment, call_price], weights)])
+    return rolex(combined_indicator)
+
+def calculate_fibonacci(high, low, emv, vix, mgs):
+    fgh = (high - low) * 0.786
+    mem = math.sqrt(fgh * low * emv) - vix - mgs
+    return forex(mem)
+
+start_price = 66110  # 5th Day
+end_price = 66339  # 57th Day
 stdev_multiple = 2
 window_size = 20
+price = 66780
+
 period = 57
-high = 73097
-low = 40112
+high = 69351  # 3rd Day
+low = 54238  # 9th Day
 close = 66339
 volume = 22032
 alpha = 0.15
-moment = calculate_moment(start_price, end_price, period)
-print("Momentum:", moment)
-typical_price = calculate_typical(high, low, close)
-print("Type:", typical_price)
+
+harmony = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57]
 prices = [67846, 68017, 69351, 66416, 66110, 63926, 61732, 60761, 54238, 55765, 56887, 57158, 61347, 61445, 60463, 58615, 59136, 61052, 57976, 59132, 59435, 60550, 59291, 60554, 60625, 63976, 64154, 64135, 62976, 59536, 59115, 59062, 59244, 58563, 57275, 59123, 56729, 57203, 56605, 53858, 54382, 56569, 56779, 55074, 58084, 60382, 58582, 58074, 60545, 62096, 63672, 62922, 63140, 64344, 63162, 65182, 66339]
 gains, losses = [], []
 for i in range(1, len(prices)):
@@ -64,22 +105,46 @@ for i in range(1, len(prices)):
         gains.append(change)
     elif change < 0:
         losses.append(-change)
+
+moment = calculate_moment(start_price, end_price, period)
+print("Momentum:", moment)
+typical_price = calculate_typical(high, low, close)
+print("Type:", typical_price)
+mgs = mean_gap_size(prices, window_size)
+print("MGS:", mgs)
+
 rsi, ted = calculate_rsi(gains, period)
 std = calculate_std(prices)
 print("RSI:", rsi)
-print("Loss:", ted)
 print("STD:", std)
+print("Loss:", ted)
+
 trend = calculate_trend(typical_price, volume, rsi)
 print("Trend:", trend)
 prev_ema = 65398
 ema = calculate_ema(close, prev_ema, alpha)
 print("EMA:", ema)
+emv = calculate_emv(high, low, volume)
+print("EMV:", emv)
+
 upper_band, lower_band = calculate_bollinger_bands(gains, window_size, stdev_multiple)
 print("UB:", upper_band)
 print("LB:", lower_band)
-abc, bcd, cde, efg, fgh = calculate_fibonacci(high, low)
-print("1/5F:", abc)
-print("2/5F:", bcd)
-print("3/5F:", cde)
-print("4/5F:", efg)
-print("5/5F:", fgh)                                                                                                                                                                                                                      print("5/5F:", fgh)
+aroon_up, aroon_down = calculate_aroon(prices, period)
+print("AU:", aroon_up)
+print("AD:", aroon_down)
+
+T = 0.25 # Time to expiration (in years)
+r = 0.02 # Risk-free interest rate
+sigma = 0.2 # Volatility
+call_price = black_scholes_call(close, high, T, r, sigma)
+print("Call:", call_price)
+vix = calculate_vix(prices, window_size, period, call_price)
+print("VIX:", vix)
+
+fgh = calculate_fibonacci(high, low, emv, vix, mgs)
+print("Stop:", fgh)
+remains = [harmon for harmon, price in zip(harmony, prices) if price > fgh]
+median_period = remains[len(remains) // 2]
+car = forex(prices[median_period] - mgs + call_price * 2)
+print("Sell:", car)
