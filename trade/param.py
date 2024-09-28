@@ -24,7 +24,7 @@ def calculate_rsi(gains, period):
     avg_loss = sum(losses) / period
     rs = avg_gain / avg_loss
     rsi = 100 - 100 / (1 + rs)
-    return forex(rsi), rolex(avg_loss)
+    return forex(rsi)
 
 def calculate_trend(typical_price, volume, rsi):
     trend = math.log(typical_price * volume) * (1 - rsi / 100)
@@ -44,6 +44,13 @@ def calculate_aroon(prices, period):
     aroon_up = (period - prices.index(highest_high) + 1) / period * 100
     aroon_down = (period - prices.index(lowest_low) + 1) / period * 100
     return rolex(aroon_up, aroon_down)
+
+def calculate_fast_stochastic(prices, period):
+    lowest_low = min(prices[-period:])
+    highest_high = max(prices[-period:])
+    slow_k = [100 * ((price - lowest_low) / (highest_high - lowest_low)) for price in prices[-period:]]
+    slow_d = sum(slow_k[-period:]) / period
+    return forex(slow_d)
 
 def calculate_bollinger_bands(prices, window_size, stdev_multiple):
     sma = sum(prices[-window_size:]) / window_size
@@ -73,15 +80,23 @@ def calculate_vix(prices, window_size, period, call_price):
     vix = annualized_volatility * call_price
     return forex(vix)
 
-def merge_indicators(rsi, vix, moment, call_price):
-    weights = [0.3, 0.3, 0.2, 0.2]
-    combined_indicator = sum([indicator * weight for indicator, weight in zip([rsi, vix, moment, call_price], weights)])
-    return rolex(combined_indicator)
-
-def calculate_fibonacci(high, low, emv, vix, mgs):
-    fgh = (high - low) * 0.786
-    mem = math.sqrt(fgh * low * emv) - vix - mgs
-    return forex(mem)
+def calculate_sar(prices, initial_sar, acceleration_factor):
+    sar = [initial_sar]
+    trend = 1
+    for i in range(1, len(prices)):
+        if trend == 1:
+            if prices[i] < sar[-1]:
+                trend = -1
+                sar.append(sar[-1])
+            else:
+                sar.append(sar[-1] + acceleration_factor * (prices[i] - sar[-1]))
+        else:
+            if prices[i] > sar[-1]:
+                trend = 1
+                sar.append(sar[-1])
+            else:
+                sar.append(sar[-1] - acceleration_factor * (sar[-1] - prices[i]))
+    return sar
 
 start_price = 66110  # 5th Day
 end_price = 66339  # 57th Day
@@ -112,16 +127,16 @@ typical_price = calculate_typical(high, low, close)
 print("Type:", typical_price)
 mgs = mean_gap_size(prices, window_size)
 print("MGS:", mgs)
-
-rsi, ted = calculate_rsi(gains, period)
+rsi = calculate_rsi(gains, period)
 std = calculate_std(prices)
 print("RSI:", rsi)
 print("STD:", std)
-print("Loss:", ted)
 
 trend = calculate_trend(typical_price, volume, rsi)
 print("Trend:", trend)
-prev_ema = 65398
+slow_d = calculate_fast_stochastic(prices, period)
+print("Dlow:", slow_d)
+prev_ema = 65182  # 56th Day
 ema = calculate_ema(close, prev_ema, alpha)
 print("EMA:", ema)
 emv = calculate_emv(high, low, volume)
@@ -134,17 +149,16 @@ aroon_up, aroon_down = calculate_aroon(prices, period)
 print("AU:", aroon_up)
 print("AD:", aroon_down)
 
-T = 0.25 # Time to expiration (in years)
-r = 0.02 # Risk-free interest rate
-sigma = 0.2 # Volatility
+T = 0.25  # Time to expiration (in years)
+r = 0.02  # Risk-free interest rate
+sigma = 0.2  # Volatility
 call_price = black_scholes_call(close, high, T, r, sigma)
 print("Call:", call_price)
 vix = calculate_vix(prices, window_size, period, call_price)
 print("VIX:", vix)
 
-fgh = calculate_fibonacci(high, low, emv, vix, mgs)
-print("Stop:", fgh)
-remains = [harmon for harmon, price in zip(harmony, prices) if price > fgh]
-median_period = remains[len(remains) // 2]
-car = forex(prices[median_period] - mgs + call_price * 2)
-print("Sell:", car)
+initial_sar = prices[0] - 0.02 * (max(prices[:14]) - min(prices[:14]))
+acceleration_factor = 0.02
+sar = calculate_sar(prices, initial_sar, acceleration_factor)
+print("Stop:", rolex(sar[-1]))
+print("Sell:", rolex(sar[0] - mgs/2))
