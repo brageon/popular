@@ -19,4 +19,4 @@ Utilities = {DALL-E3: pictures.
 ```
 Folder web has format module: div, extract, soup, text. Scrape: remote, quo*, spider, seo. Pyscript: urls, todo. Extra: jso, tube, video. Folder app has android module: list, interact, miss, new, septim, stats, max, label, genre, synthes, review. TA: stocks, stuk, wine, param, yfc. Games: fibon, parser, plagi, name, bolag. *Rest* is most like Lavender AI. 
 
-AWS-RunRemoteScript: Ansible Playbooks and Python scripts from Git. Glue, Athena to analyze S3 after Run. OpenSearch to browse documents. Elastic to browse IoT SDK. Amplitude as API Gateway. HubSpot as CRM. Kit for Stripe.
+AWS-RunRemoteScript: Ansible Playbooks and Python scripts from Git. Glue, Athena to analyze S3 after Run. OpenSearch to browse notes. Elastic to browse IoT. Amplitude as API Gateway. HubSpot as CRM. Kit for Stripe.
