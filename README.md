@@ -1,5 +1,5 @@
 # Tactical Proposals
-Competitive analysis and industry proposals. Did this in April-May 2023 and that was before writing a book and using AI. First time I used AI was in September 2023. I made up the formula in bolag.py to determine KPI of industries from allabolag.
+Competitive analysis and industry proposals. Did this in April-May 2023 and that was before writing a book and using AI. First time I used AI was in September 2023. I made up the formula in bolag.py to determine KPI of industries.
 ```
 Utilities = {DALL-E3: pictures.
 * Pictory: videos.
