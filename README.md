@@ -1,4 +1,4 @@
-# Tactical proposals from mining
+# Tactical Proposals
 Competitive analysis and industry proposals. Did this in April-May 2023 and that was before writing a book and using AI. First time I used AI was in September 2023. I made up the formula in bolag.py to determine KPI of industries from allabolag. Learn more in *debt*.
 ```
 Utilities = {DALL-E3: pictures.
@@ -19,4 +19,4 @@ Utilities = {DALL-E3: pictures.
 ```
 Folder web has format module: div, extract, soup, text. Scrape: remote, quo*, spider, seo. Pyscript: urls, todo. Extra: jso, tube, video. Folder app has android module: list, interact, miss, new, septim, stats, max, label, genre, synthes, review. TA: stocks, stuk, wine, param, yfc. Games: fibon, parser, plagi, name, bolag. *Rest* is most like Lavender AI. 
 
-AWS-RunRemoteScript: Ansible Playbooks and Python scripts from Git. Glue, Athena to analyze S3 after Run. OpenSearch to browse documents. Elastic to browse IoT devices. Amplitude as API Gateway. HubSpot as CRM. Kit for Stripe.
+AWS-RunRemoteScript: Ansible Playbooks and Python scripts from Git. Glue, Athena to analyze S3 after Run. OpenSearch to browse documents. Elastic to browse IoT SDK. Amplitude as API Gateway. HubSpot as CRM. Kit for Stripe.
