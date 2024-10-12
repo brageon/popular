@@ -11,7 +11,7 @@ Utilities = {DALL-E3: pictures.
 * Copy.ai: sales and marketing.
 * Zoho Zia: translate, crm.
 * Otter: transcribe.
-* Elevenlabs: voice. 
+* Elevenlabs: voices. 
 * Motion: planning.
 * ChatSpot: chatgpt for crm.
 * Lavender: email score.
