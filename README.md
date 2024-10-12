@@ -17,6 +17,6 @@ Utilities = {DALL-E3: pictures.
 * Lavender: email score.
 * Frase: seo. Murf.ai: polly.}
 ```
-Folder web has format module: div, extract, soup, text. Scrape: remote, quo*, spider, seo. Pyscript: urls, todo. Extra: jso, tube, video. Android mining: list, interact, miss, new, septim, stats, max, label, genre, synthes, review. TA: stocks, stuk, wine, param, yfc. Games: fibon, parser, plagi, name, bolag. *Rest* is most like Lavender. 
+Folder web has format module: div, extract, soup, text. Scrape: remote, quo*, spider, seo. Pyscript: urls, todo. Extra: jso, tube, video. Android mining: list, interact, miss, new, septim, stats, max, label, genre, synthes, review. TA: stocks, stuk, wine, param, yfc. Misc: parser, plagi, name, bolag. *Rest* is most like Lavender. 
 
 AWS-RunRemoteScript: Ansible Playbooks and Python scripts from Git. Glue, Athena to analyze S3 after Run. OpenSearch to browse notes. Elastic to browse IoT. Amplitude as API Gateway. HubSpot as CRM. Kit for Stripe.
