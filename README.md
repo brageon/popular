@@ -13,7 +13,7 @@ Utilities = {DALL-E3: pictures.
 * Otter: transcribe.
 * Elevenlabs: voice. 
 * Motion: planning.
-* ChatSpot: ChatGPT for CRM.
+* ChatSpot: chatgpt for crm.
 * Lavender: email score.
 * Frase: seo. Murf.ai: polly.}
 ```
