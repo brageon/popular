@@ -30,6 +30,11 @@ git reset --hard "commit-SHA" git pull origin main
 git config pull.rebase true, git push -u origin
 git push origin gh-pages --force 
 ```
+Tags and Releases.
+```
+git tag <name>, git push origin --tags
+git push origin <tag>, git fetch
+```
 Cached Files.
 ``` git reset --soft HEAD~ && git commit --amend
 git checkout --orphan newBranch, git add -A,
